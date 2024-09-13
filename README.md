@@ -19,6 +19,7 @@ This is my basic `Neovim` setup, is **Lightweight**, **Customizable** and **Simp
 ## Requirements
 - Neovim
 - Git
+- Node and NPM
 - Some [Nerd Font](https://www.nerdfonts.com/)
 - RipGrep if you want to search for strings with `Telescope`
 
