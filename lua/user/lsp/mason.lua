@@ -3,7 +3,7 @@ local servers = {
 	"clangd",
 
 	"pyright",
-	"ts_ls",
+	"ts_ls", -- Node and Typescript
 
 	"jdtls",
 
