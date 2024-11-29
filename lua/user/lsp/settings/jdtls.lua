@@ -11,7 +11,7 @@ elseif vim.fn.has 'mac' then
 end
 
 local config_path = vim.fn.glob(jdtls_path .. '/config_' .. system)
-local lombok_jar = vim.fn.stdpath('config') ..  '/plugins/jdtls/lombok.jar' -- configura a string do caminho absoluto
+local lombok_jar = vim.fn.stdpath('config') ..  '/plugins/jdtls/lombok.jar'
 
 -- local jdtls_config = {
 return {
