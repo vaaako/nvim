@@ -18,7 +18,7 @@ This is my basic `Neovim` setup, is **Lightweight**, **Customizable** and **Simp
 # Install
 ## Requirements
 - Neovim
-- Git
+- NPM
 - Some [Nerd Font](https://www.nerdfonts.com/)
 - RipGrep if you want to search for strings with `Telescope`
 
@@ -36,12 +36,15 @@ rm -rf ~/.config/nvim
 rm -rf ~/.local/share/nvim
 ```
 
-Now run the command
+Now run the following command:
 ```sh
 git clone https://github.com/vaaako/nvim ~/.config/nvim && nvim
 ```
 
-Plugins should start to install when opening **Neovim**
+Plugins should start to install
+
+> [!NOTE]
+> You may have some trouble with **LSPs**
 
 ## Uninstall
 ```sh
