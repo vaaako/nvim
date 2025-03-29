@@ -6,12 +6,21 @@ require("user.colorscheme")
 -- local colorscheme = "tokyonight-night"
 -- local colorscheme = "catppuccin-mocha"
 -- local colorscheme = "dracula"
--- local colorscheme = "material-deep-ocean"
-local colorscheme = "ofirkai-darkblue"
+-- local colorscheme = "ofirkai-darkblue"
+local colorscheme = "gruber-darker"
 
 
+-- [!] Here are some less important plugins that i dont want to add to the core plugins
 local plugins = require("user.plugins")
 plugins.config.plugins = {
+	-- Copilot
+	-- This is not a copilot that does stuff for me, it just helps me complete code (like fill parameter automatically)
+	{
+		"Exafunction/codeium.vim",
+		event = 'BufEnter'
+		-- Config: Run :Codeium Auth
+	},
+
 	-- Markdown preview
 	{
 		"iamcco/markdown-preview.nvim",
@@ -31,25 +40,6 @@ plugins.config.plugins = {
 		end
 	},
 
-	-- Screenshot code
-	{
-		-- https://github.com/michaelrommel/nvim-silicon?tab=readme-ov-file#setup
-		"michaelrommel/nvim-silicon",
-		event = 'VeryLazy',
-		cmd = "Silicon",
-		config = function()
-			require("silicon").setup({
-				to_clipboard = false,
-				font = "JetBrainsMonoNL Nerd Font=34; Noto Color Emoji=34",
-				theme = "Dracula", -- Run "silicon --help" on terminal to view more themes
-				window_title = function()
-					return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ':t')
-				end
-			})
-		end
-		-- sudo pacman -S silicon
-	},
-
 	-- Character and emoji picker
 	{
 		"ziontee113/icon-picker.nvim",
@@ -62,7 +52,28 @@ plugins.config.plugins = {
 		end
 	},
 
-	---- Highlight comment words
+
+	-- Screenshot code
+	{
+		-- https://github.com/michaelrommel/nvim-silicon?tab=readme-ov-file#setup
+		"michaelrommel/nvim-silicon",
+		event = 'VeryLazy',
+		cmd = "Silicon",
+		config = function()
+			require("silicon").setup({
+				to_clipboard = false,
+				-- Use fallback font
+				-- font = "JetBrainsMonoNL Nerd Font=34; Noto Color Emoji=34",
+				theme = "Dracula", -- Run "silicon --help" on terminal to view more themes
+				window_title = function()
+					return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ':t')
+				end
+			})
+		end
+		-- sudo pacman -S silicon
+	},
+
+	-- Highlight comment words
 	{
 		"folke/todo-comments.nvim",
 		event = "VeryLazy",
@@ -74,19 +85,19 @@ plugins.config.plugins = {
 
 				highlight = {
 					multiline = true,
-					pattern = [[.*<(KEYWORDS):]], -- Match: "KEYWORDS:" including the colon
+					pattern = [[.*<(KEYWORDS)\s*:]], -- Match: "KEYWORDS:" including the colon
 				},
 
-				-- INFO -- Some colorschemes may affec tcolors
+				-- INFO: -- Some colorschemes may affec tcolors
 				keywords = {
 					TODO = { icon = " ", color = "default" },
 				},
 
-				-- INFO -- If termgui is enabled, terminal colors will be used instead
+				-- INFO: -- If termgui is enabled, terminal colors will be used instead
 				colors = {
 					error   = { "DiagnosticError", "ErrorMsg", "#DC2626" },
 					warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" },
-					info    = { "DiagnosticInfo", "#2563EB" },
+					info    = { "DiagnosticInfo", "#3300FF" },
 					hint    = { "DiagnosticHint", "#10B981" },
 					default = { "Identifier", "#7C3AED" },
 					test    = { "Identifier", "#FF00FF" }
@@ -125,8 +136,8 @@ plugins.config.plugins = {
 	"folke/tokyonight.nvim",
 	"Mofiqul/dracula.nvim",
 	"catppuccin/nvim",
-	"marko-cerovac/material.nvim",
-	"ofirgall/ofirkai.nvim"
+	"ofirgall/ofirkai.nvim",
+	"blazkowolf/gruber-darker.nvim"
 
 	-- INFO -- Config other plugins
 

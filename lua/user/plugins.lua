@@ -146,8 +146,17 @@ local lock_plugins = {
 		"NvChad/nvim-colorizer.lua",
 		lazy = false,
 		config = function()
-			require("colorizer").setup()
-		end
+			require("colorizer").setup({
+				filetypes = {
+					"css",
+					"scss",
+					"html",
+					"javascript",
+					"typescript",
+					"json"
+				}
+			})
+		end,
 	},
 
 	-- Highlight yank
@@ -172,7 +181,7 @@ local lock_plugins = {
 
 
 local config = {
-	plugins = {}, -- If "return plugins" it will return a copy and won't work
+	plugins = {},
 	lazy_config = {}
 }
 

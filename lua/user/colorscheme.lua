@@ -3,6 +3,7 @@ local function set_colorscheme(colorscheme, bg_op)
 	-- Set colorscheme if the method is not executed on "init.lua"
 	if colorscheme == nil then -- No colorscheme provided
 		colorscheme = "slate" -- Default colorscheme
+		return
 	end
 
 	-- Check if colorscheme exists
@@ -13,7 +14,7 @@ local function set_colorscheme(colorscheme, bg_op)
 	end
 
 	-- Set background opacity if set
-	if bg_op then
+	if bg_op ~= nil then
 		-- vim.cmd('highlight Normal guibg=none')
 		-- vim.cmd('highlight Normal guibg=#222222' .. bg_op)
 		vim.cmd('highlight Normal guibg=#000000' .. bg_op)

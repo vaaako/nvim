@@ -2,6 +2,7 @@ local wk = require("which-key")
 
 local mappings = {
 	{
+		-- File
 		{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Browse Files" },
 		{ "<leader>h", "<cmd>ToggleTerm direction=horizontal size=10<cr>", desc = "Open Horizontal Terminal" },
 		{ "<leader>q", "<cmd>bdelete<cr>", desc = "Close Buffer" },
@@ -43,6 +44,7 @@ local mappings = {
 		{ "<leader>lq", desc = "View all problems location" },
 		{ "<leader>lr", desc = "Rename symbol (e.g. namespace, macro)" },
 		{ "<leader>ls", desc = "Signature help" },
+		{ "<leader>lh", desc = "Inlay hints" },
 
 		-- Picker
 		{ "<leader>p", group = "picker" },
@@ -55,9 +57,10 @@ local visual_mappings = {
 	{
 		mode = { "v" },
 		{ "<leader>s", group = "silicon" },
-		{ "<leader>sc", function() require("nvim-silicon").shoot() end, desc = "Copy code screenshot to clipboard" },
-		{ "<leader>sf", function() require("nvim-silicon").file() end, desc = "Save code screenshot as file" },
-		{ "<leader>ss", function() require("nvim-silicon").clip() end, desc = "Create code screenshot" },
+		{ "<leader>s",  group = "Silicon" },
+		{ "<leader>sc", function() require("nvim-silicon").clip() end, desc = "Copy code screenshot to clipboard" },
+		{ "<leader>sf", function() require("nvim-silicon").file() end,  desc = "Save code screenshot as file" },
+		{ "<leader>ss", function() require("nvim-silicon").shoot() end,  desc = "Create code screenshot" },
 	}
 }
 
