@@ -26,10 +26,10 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 
 -- Resize with arrows -> Resize splits
-keymap("n", "<C-Up>", ":resize +1<CR>", opts)
-keymap("n", "<C-Down>", ":resize -1<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -1<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +1<CR>", opts)
+keymap("n", "<C-k>", ":resize +1<CR>", opts)
+keymap("n", "<C-j>", ":resize -1<CR>", opts)
+keymap("n", "<C-h>", ":vertical resize -1<CR>", opts)
+keymap("n", "<C-l>", ":vertical resize +1<CR>", opts)
 
 -- Tabline / Buffers --
 keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
