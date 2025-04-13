@@ -17,19 +17,19 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- Better window navigation -> Ctrl+[hjkl] to move between splits
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<C-H>", "<C-w>h", opts)
+keymap("n", "<C-J>", "<C-w>j", opts)
+keymap("n", "<C-K>", "<C-w>k", opts)
+keymap("n", "<C-L>", "<C-w>l", opts)
 -- keymap("n", "<leader>e", ":Lex 30<cr>", opts) -- Open File explorer
 
 
 
 -- Resize with arrows -> Resize splits
-keymap("n", "<C-k>", ":resize +1<CR>", opts)
-keymap("n", "<C-j>", ":resize -1<CR>", opts)
-keymap("n", "<C-h>", ":vertical resize -1<CR>", opts)
-keymap("n", "<C-l>", ":vertical resize +1<CR>", opts)
+keymap("n", "<C-Up>", ":resize +1<CR>", opts)
+keymap("n", "<C-Down>", ":resize -1<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -1<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize +1<CR>", opts)
 
 -- Tabline / Buffers --
 keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)

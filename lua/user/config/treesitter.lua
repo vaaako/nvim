@@ -19,10 +19,8 @@ treesitter.setup({
 		"python",
 		"javascript",
 
-		"ruby",
 		"html",
 		"css",
-		"php"
 	},
 
 	sync_install = false, -- Install languages synchronously (only applied to "ensure_installed")
