@@ -159,7 +159,5 @@ plugin_name.setup({
 ```
 
 # Credits
-Made by me
-
 Inspired by: [Neovim from Scratch](https://github.com/LunarVim/Neovim-from-scratch/)
 
