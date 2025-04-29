@@ -41,6 +41,7 @@ local lock_plugins = {
 	"williamboman/mason.nvim",           -- Simple to use language server installer
 	"williamboman/mason-lspconfig.nvim", -- Simple to use language server installer
 	"jose-elias-alvarez/null-ls.nvim",   -- LSP diagnostics and code actions
+	"onsails/lspkind.nvim",              -- vscode-like pictograms
 
 	-- Telescope
 	"nvim-telescope/telescope.nvim",
@@ -67,8 +68,9 @@ local lock_plugins = {
 	-- Treesiter
 	"p00f/nvim-ts-rainbow",
 
+	"JoosepAlviste/nvim-ts-context-commentstring", -- What style of comment to use on the cursor location (ex: html inside style tag and script tag)
+
 	-- Customization
-	"JoosepAlviste/nvim-ts-context-commentstring", -- Treesiter: What type of comment use depending based on cursor the cursor location (some files have two types of comment, like HTML)
 	"akinsho/toggleterm.nvim",                     -- Floating terminal (keymap: Ctrl + /)
 	"nvim-lualine/lualine.nvim",                   -- Better bottom line
 
@@ -81,8 +83,7 @@ local lock_plugins = {
 		config = function()
 			require("nvim-surround").setup({
 				surrounds = {
-					-- Bold, for markdown
-					-- This replace default B {}
+					-- strong
 					["s"] = {
 						add = function()
 							return { { "**" }, { "**" } }
@@ -96,9 +97,6 @@ local lock_plugins = {
 	-- HTML autopair
 	{
 		"windwp/nvim-ts-autotag",
-		-- require('nvim-ts-autotag').setup({
-		--
-		-- })
 	},
 
 	-- Highlight matching words under cursor
@@ -157,6 +155,15 @@ local lock_plugins = {
 				}
 			})
 		end,
+	},
+
+	-- Markdown preview
+	{
+		"iamcco/markdown-preview.nvim",
+		event = 'VeryLazy',
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = "markdown", -- Markdown files only
+		build = function() vim.fn["mkdp#util#install"]() end
 	},
 
 	-- Highlight yank

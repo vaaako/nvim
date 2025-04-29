@@ -21,15 +21,6 @@ plugins.config.plugins = {
 		-- Config: Run :Codeium Auth
 	},
 
-	-- Markdown preview
-	{
-		"iamcco/markdown-preview.nvim",
-		event = 'VeryLazy',
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = "markdown", -- Markdown files only
-		build = function() vim.fn["mkdp#util#install"]() end
-	},
-
 	-- Updating symbol usages when renaming or moving a file in nvim-tree
 	{
 		'simaxme/java.nvim',
