@@ -21,16 +21,16 @@ require("lazy").setup({
 		-- Colorscheme
 		"https://github.com/blazkowolf/gruber-darker.nvim",
 
-		-- Buffer
+		-- Multi cursor
 		"https://github.com/mg979/vim-visual-multi",
 		-- Icons
-		"https://github.com/nvim-tree/nvim-web-devicons",
-		"https://github.com/lewis6991/gitsigns.nvim",
+		-- "https://github.com/nvim-tree/nvim-web-devicons",
+		-- "https://github.com/lewis6991/gitsigns.nvim",
 
 		-- LSP
 		"https://github.com/mason-org/mason.nvim",
-		"https://github.com/hrsh7th/nvim-cmp",
 		"https://github.com/mason-org/mason-lspconfig.nvim", -- Just for "ensure_installed" feature
+		"https://github.com/hrsh7th/nvim-cmp",
 		"https://github.com/hrsh7th/cmp-nvim-lsp",
 		-- Treesitter
 		{
@@ -82,8 +82,7 @@ require("lazy").setup({
 
 
 require("nvim-web-devicons").setup()
-require('gitsigns').setup()
-
+-- require('gitsigns').setup()
 
 require("render-markdown").setup()
 require('treesj').setup({
