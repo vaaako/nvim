@@ -30,7 +30,7 @@ keymap("n", "Y", "y$<CR>", opts)
 -- File
 keymap("n", "<leader>w", ":write<cr>", opts)
 keymap("n", "<leader>q", ":quit<cr>", opts)
-keymap("n", "<leader>qa", ":qall<cr>", opts)
+keymap("n", "<leader>aq", ":qall<cr>", opts)
 keymap("n", "<leader>r", ":nohlsearch<cr>", opts)
 keymap("n", "<leader>e", ":Tex<CR>", opts) -- Open in new tab
 keymap("n", "<leader>x", ":copen<CR>", opts)
