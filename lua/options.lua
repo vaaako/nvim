@@ -44,13 +44,13 @@ vim.opt.signcolumn    = "yes" -- Always show the sign column
 vim.opt.conceallevel  = 0     -- `` visible on markdown
 vim.opt.termguicolors = true  -- True colors support
 
--- e.g. listchars = { eol = "$", tab = ">~", space = "·", extends = "#" },
 vim.opt.listchars = { tab = "▏ ", space = "·", extends = "#", trail = "~", nbsp = "+" }
 vim.opt.list      = true -- Use listchars
 
 -- Behaviour
 vim.opt.undofile  = true -- Enable persistent undo
 vim.opt.path = "**"
+vim.opt.guicursor:append("i:hor20")
 
 -- vim.cmd("filetype plugin indent on")
 
