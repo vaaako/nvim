@@ -10,14 +10,17 @@ This is my minimal neovim setup
 
 No `nvim-lspconfig`
 
-# Installation
-Backup your current neovim
+## Requirements
+- npm
+
+## Installation
+- Backup your current neovim
 
 ```sh
 git clone https://github.com/vaaako/nvim ~/.config/nvim && nvim
 ```
 
-# Controls
-Check [options.lua](lua/options.lua) for general keymaps and [lsp.lua](lua/lsp.lua) for LSP related
+# Keymaps
+Check [keymaps.lua](lua/keymaps.lua) for general keymaps and [lsp.lua](lua/lsp.lua) for LSP related
 
 
