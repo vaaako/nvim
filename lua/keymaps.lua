@@ -81,8 +81,8 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 
 -- Search
-vim.keymap.set("n", "<leader>ff", ":find ")
-vim.keymap.set("n", "<leader>fg", ":grep ")
+-- vim.keymap.set("n", "<leader>ff", ":find ")
+-- vim.keymap.set("n", "<leader>fg", ":grep ")
 vim.cmd("command! -nargs=+ NewGrep execute 'silent grep! <args>' | copen")
 
 -- Terminal
