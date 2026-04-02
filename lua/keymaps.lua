@@ -11,7 +11,6 @@ command moded = "c"
 
 local keymap = vim.api.nvim_set_keymap -- Shorten function name
 local opts   = { noremap = true, silent = true }
-
 -- Leader Key
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -32,18 +31,23 @@ keymap("n", "Y", "y$<CR>", opts)
 
 -- File
 keymap("n", "<leader>w", ":write<cr>", opts)
-keymap("n", "<leader>q", ":quit<cr>", opts)
+-- keymap("n", "<leader>q", ":quit<cr>", opts)
+keymap("n", "<leader>q", ":bdelete<cr>", opts)
 keymap("n", "<leader>aq", ":qall<cr>", opts)
 keymap("n", "<leader>r", ":nohlsearch<cr>", opts)
 keymap("n", "<leader>e", ":Tex<CR>", opts) -- Open in new tab
 keymap("n", "<leader>x", ":copen<CR>", opts)
 
 -- Navigation tabs
-keymap("n", "<S-h>", ":tabprevious<CR>", opts)
-keymap("n", "<S-l>", ":tabnext<CR>", opts)
-keymap("n", "<M-h>", ":tabmove -1<CR>", opts)
-keymap("n", "<M-l>", ":tabmove +1<CR>", opts)
-keymap("n", "<leader>n", ":tabnew<CR>", opts)
+-- keymap("n", "<S-l>", ":tabnext<cr>", opts)
+-- keymap("n", "<S-h>", ":tabprevious<cr>", opts)
+-- keymap("n", "<M-l>", ":tabmove +1<CR>", opts)
+-- keymap("n", "<M-h>", ":tabmove -1<CR>", opts)
+keymap("n", "<S-l>", ":bnext<cr>", opts)
+keymap("n", "<S-h>", ":bprev<cr>", opts)
+-- keymap("n", "<M-l>", ":tabnext<cr>", opts)
+-- keymap("n", "<M-h>", ":tabprevious<cr>", opts)
+keymap("n", "<leader>n", ":tabnew<cr>", opts)
 
 -- Search
 keymap("n", "<leader>ff", ":Pick files<cr>", opts)

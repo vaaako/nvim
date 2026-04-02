@@ -10,7 +10,7 @@ vim.opt.winborder = "rounded" -- rounded, single, double, none
 
 -- Buffer
 vim.opt.showtabline = 2  -- 0: never  / 1: only if there are at least two / 2: always
-vim.opt.tabline     = '%t' -- Show only filename in tabline
+-- vim.opt.guitabline     = "%t" -- Show only filename in tabline
 -- Tabs
 vim.opt.autoindent  = true
 vim.opt.smartindent = false  -- Use file indent
