@@ -17,6 +17,9 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+
+keymap("n", "<leader>p", ":RenderMarkdown toggle<cr>", opts)
+
 keymap("n", "<leader>o", ":update<cr> :source<cr>", opts)
 
 -- Navigate splits with Ctrl
@@ -40,22 +43,20 @@ keymap("n", "<S-h>", ":tabprevious<CR>", opts)
 keymap("n", "<S-l>", ":tabnext<CR>", opts)
 keymap("n", "<leader>n", ":tabnew<CR>", opts)
 
--- Find Symbol
+-- Search
 keymap("n", "<leader>ff", ":Pick files<cr>", opts)
 keymap("n", "<leader>fg", ":Pick grep<cr>", opts)
 vim.keymap.set("n", "<leader>fs", function()
 	vim.lsp.buf.workspace_symbol(vim.fn.input("Symbol: "))
 end)
+-- Search
+-- vim.keymap.set("n", "<leader>ff", ":find ")
+-- vim.keymap.set("n", "<leader>fg", ":grep ")
+-- vim.cmd("command! -nargs=+ NewGrep execute 'silent grep! <args>' | copen")
 
 -- Buffer
 keymap("n", "<leader>sv", ":vsplit<cr>", opts)
 keymap("n", "<leader>sh", ":split<cr>", opts)
--- Buferline
--- keymap("n", "<leader>q", ":bdelete<cr>", opts)
--- keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
--- keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
--- keymap("n", "<M-l>", ":BufferLineMoveNext<CR>", opts)
--- keymap("n", "<M-h>", ":BufferLineMovePrev<CR>", opts)
 -- Navigation tabs
 keymap("n", "<S-h>", ":tabprevious<CR>", opts)
 keymap("n", "<S-l>", ":tabnext<CR>", opts)
@@ -80,10 +81,6 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 
--- Search
--- vim.keymap.set("n", "<leader>ff", ":find ")
--- vim.keymap.set("n", "<leader>fg", ":grep ")
-vim.cmd("command! -nargs=+ NewGrep execute 'silent grep! <args>' | copen")
 
 -- Terminal
 

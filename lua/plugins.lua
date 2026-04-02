@@ -58,7 +58,6 @@ require("lazy").setup({
 		"https://github.com/nvim-mini/mini.notify",
 		"https://github.com/nvim-mini/mini.pairs",
 		"https://github.com/nvim-mini/mini.pick",
-		"https://github.com/nvim-mini/mini.starter",
 		"https://github.com/nvim-mini/mini.surround",
 
 		-- Useless
@@ -84,9 +83,10 @@ require("lazy").setup({
 require("nvim-web-devicons").setup()
 -- require('gitsigns').setup()
 
-require("render-markdown").setup()
+require("render-markdown").disable()
+
 require('treesj').setup({
-	max_join_length = 200
+	max_join_length = 200,
 })
 
 -- mini.nvim
@@ -104,14 +104,13 @@ hipatterns.setup({  -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOT
 		hex_color = hipatterns.gen_highlighter.hex_color(),
 	},
 })
-require("mini.notify").setup()     --
-require("mini.pairs").setup()      -- Auto pairs
+require("mini.notify").setup() --
+require("mini.pairs").setup()  -- Auto pairs
 require("mini.pick").setup({
 	options = {
 		use_cache = false
 	}
 })
-require("mini.starter").setup()    --
 require("mini.surround").setup({
 	custom_surroundings = {
 		["s"] = { output = { left = "**", right = "**" } }

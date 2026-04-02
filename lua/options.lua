@@ -9,8 +9,8 @@ vim.opt.completeopt = "menu,menuone,popup,fuzzy" -- menu, menuone, noselect, noi
 vim.opt.winborder = "rounded" -- rounded, single, double, none
 
 -- Buffer
-vim.opt.showtabline = 2     -- 0: never  / 1: only if there are at least two / 2: always
--- vim.opt.tabline     = ''    -- Default tabline
+vim.opt.showtabline = 2  -- 0: never  / 1: only if there are at least two / 2: always
+-- vim.opt.tabline     = '' -- Default tabline
 -- Tabs
 vim.opt.autoindent  = true
 vim.opt.smartindent = false  -- Use file indent
