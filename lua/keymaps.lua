@@ -16,10 +16,11 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-
+-- Utilities
 keymap("n", "<leader>p", ":RenderMarkdown toggle<cr>", opts)
-
 keymap("n", "<leader>o", ":update<cr> :source<cr>", opts)
+keymap("x", "<leader>nl", "!nl -w1 -s.<cr>", opts) -- Insert numbers
+
 
 -- Navigate splits with Ctrl
 keymap("n", "<C-H>", "<C-w>h", opts)
@@ -47,7 +48,7 @@ keymap("n", "<S-l>", ":bnext<cr>", opts)
 keymap("n", "<S-h>", ":bprev<cr>", opts)
 -- keymap("n", "<M-l>", ":tabnext<cr>", opts)
 -- keymap("n", "<M-h>", ":tabprevious<cr>", opts)
-keymap("n", "<leader>n", ":tabnew<cr>", opts)
+keymap("n", "<leader>nt", ":tabnew<cr>", opts)
 
 -- Search
 keymap("n", "<leader>ff", ":Pick files<cr>", opts)
