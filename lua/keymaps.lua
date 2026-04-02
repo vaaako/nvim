@@ -41,6 +41,8 @@ keymap("n", "<leader>x", ":copen<CR>", opts)
 -- Navigation tabs
 keymap("n", "<S-h>", ":tabprevious<CR>", opts)
 keymap("n", "<S-l>", ":tabnext<CR>", opts)
+keymap("n", "<M-h>", ":tabmove -1<CR>", opts)
+keymap("n", "<M-l>", ":tabmove +1<CR>", opts)
 keymap("n", "<leader>n", ":tabnew<CR>", opts)
 
 -- Search
