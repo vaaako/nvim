@@ -54,7 +54,7 @@ end)
 -- Search
 -- vim.keymap.set("n", "<leader>ff", ":find ")
 -- vim.keymap.set("n", "<leader>fg", ":grep ")
--- vim.cmd("command! -nargs=+ NewGrep execute 'silent grep! <args>' | copen")
+vim.cmd("command! -nargs=+ NewGrep execute 'silent grep! <args>' | copen")
 
 -- Buffer
 keymap("n", "<leader>sv", ":vsplit<cr>", opts)
@@ -109,6 +109,7 @@ vim.keymap.set("n", "<leader>r", function()
 			break
 		end
 	end
+
 	-- If found go to it
 	if term_win then
 		vim.api.nvim_set_current_win(term_win)
@@ -116,14 +117,6 @@ vim.keymap.set("n", "<leader>r", function()
 		vim.cmd("botright split | terminal")
 		vim.cmd("resize 10")
 		term_win = vim.api.nvim_get_current_win()
-	end
-
-	-- Get terminal safely
-	local buf = vim.api.nvim_win_get_buf(term_win)
-	local job_id = vim.b[buf].terminal_job_id
-	if not job_id then
-		print("No terminal job found")
-		return
 	end
 
 	-- Enter insert mode and send command
