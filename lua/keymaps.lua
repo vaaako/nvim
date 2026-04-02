@@ -20,7 +20,7 @@ vim.g.maplocalleader = " "
 keymap("n", "<leader>p", ":RenderMarkdown toggle<cr>", opts)
 keymap("n", "<leader>o", ":update<cr> :source<cr>", opts)
 keymap("n", "<leader>x", ":copen<CR>", opts)
-keymap("n", "<leader>ns", "nohlsearch<cr>", opts) -- Insert numbers
+keymap("n", "<leader>ns", ":nohlsearch<cr>", opts) -- Insert numbers
 keymap("x", "<leader>nl", "!nl -w1 -s.<cr>", opts) -- Insert numbers
 
 -- Navigate splits with Ctrl
