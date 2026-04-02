@@ -19,8 +19,9 @@ vim.g.maplocalleader = " "
 -- Utilities
 keymap("n", "<leader>p", ":RenderMarkdown toggle<cr>", opts)
 keymap("n", "<leader>o", ":update<cr> :source<cr>", opts)
+keymap("n", "<leader>x", ":copen<CR>", opts)
+keymap("n", "<leader>ns", "nohlsearch<cr>", opts) -- Insert numbers
 keymap("x", "<leader>nl", "!nl -w1 -s.<cr>", opts) -- Insert numbers
-
 
 -- Navigate splits with Ctrl
 keymap("n", "<C-H>", "<C-w>h", opts)
@@ -36,19 +37,9 @@ keymap("n", "<leader>w", ":write<cr>", opts)
 keymap("n", "<leader>q", ":bdelete<cr>", opts)
 keymap("n", "<leader>aq", ":qall<cr>", opts)
 keymap("n", "<leader>r", ":nohlsearch<cr>", opts)
-keymap("n", "<leader>e", ":Tex<CR>", opts) -- Open in new tab
-keymap("n", "<leader>x", ":copen<CR>", opts)
-
--- Navigation tabs
--- keymap("n", "<S-l>", ":tabnext<cr>", opts)
--- keymap("n", "<S-h>", ":tabprevious<cr>", opts)
--- keymap("n", "<M-l>", ":tabmove +1<CR>", opts)
--- keymap("n", "<M-h>", ":tabmove -1<CR>", opts)
-keymap("n", "<S-l>", ":bnext<cr>", opts)
-keymap("n", "<S-h>", ":bprev<cr>", opts)
--- keymap("n", "<M-l>", ":tabnext<cr>", opts)
--- keymap("n", "<M-h>", ":tabprevious<cr>", opts)
-keymap("n", "<leader>nt", ":tabnew<cr>", opts)
+-- keymap("n", "<leader>e", ":Tex<CR>", opts) -- Open in new tab
+keymap("n", "<leader>e", ":Oil<CR>", opts) -- Open in new tab
+keymap("n", "-", ":Oil<CR>", opts) -- Open in new tab
 
 -- Search
 keymap("n", "<leader>ff", ":Pick files<cr>", opts)
@@ -65,9 +56,11 @@ vim.cmd("command! -nargs=+ NewGrep execute 'silent grep! <args>' | copen")
 keymap("n", "<leader>sv", ":vsplit<cr>", opts)
 keymap("n", "<leader>sh", ":split<cr>", opts)
 -- Navigation tabs
-keymap("n", "<S-h>", ":tabprevious<CR>", opts)
-keymap("n", "<S-l>", ":tabnext<CR>", opts)
-keymap("n", "<leader>n", ":tabnew<CR>", opts)
+-- keymap("n", "<S-h>", ":tabprevious<CR>", opts)
+-- keymap("n", "<S-l>", ":tabnext<CR>", opts)
+-- keymap("n", "<leader>n", ":tabnew<CR>", opts)
+keymap("n", "<S-l>", ":bnext<cr>", opts)
+keymap("n", "<S-h>", ":bprev<cr>", opts)
 -- Resize splits with Ctrl + arrows
 keymap("n", "<C-Up>", ":resize +1<CR>", opts)
 keymap("n", "<C-Down>", ":resize -1<CR>", opts)

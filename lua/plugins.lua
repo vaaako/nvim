@@ -24,8 +24,9 @@ require("lazy").setup({
 		-- Multi cursor
 		"https://github.com/mg979/vim-visual-multi",
 		-- Icons
-		-- "https://github.com/nvim-tree/nvim-web-devicons",
-		-- "https://github.com/lewis6991/gitsigns.nvim",
+		"https://github.com/nvim-tree/nvim-web-devicons",
+		-- File explorer
+		"https://github.com/stevearc/oil.nvim",
 
 		-- LSP
 		"https://github.com/mason-org/mason.nvim",
@@ -59,6 +60,7 @@ require("lazy").setup({
 		"https://github.com/nvim-mini/mini.pairs",
 		"https://github.com/nvim-mini/mini.pick",
 		"https://github.com/nvim-mini/mini.surround",
+		"https://github.com/nvim-mini/mini.tabline",
 
 		-- Useless
 		"https://github.com/andweeb/presence.nvim",
@@ -79,10 +81,20 @@ require("lazy").setup({
 	checker = { enabled = true },
 })
 
-
+require("oil").setup({
+	columns = {
+		"size",
+		"mtime",
+		"icon"
+	},
+	buf_options = {
+		buflisted = false -- Show buffer on tabline
+	},
+	view_options = {
+		show_hidden = true
+	}
+})
 require("nvim-web-devicons").setup()
--- require('gitsigns').setup()
-
 require("render-markdown").disable()
 
 require('treesj').setup({
@@ -109,8 +121,17 @@ require("mini.pairs").setup()  -- Auto pairs
 require("mini.pick").setup({
 	options = {
 		use_cache = false
+	},
+	mappings = {
+		choose = "<C-t>",
+		choose_in_tabpage = "<CR>",
+		move_down  = '<C-j>',
+		move_up  = '<C-k>'
 	}
 })
+-- NOTE: mini.pick line highlight was not showing for me, this fixes it
+vim.api.nvim_set_hl(0, "MiniPickMatchCurrent", { link = "visual" })
+
 require("mini.surround").setup({
 	custom_surroundings = {
 		["s"] = { output = { left = "**", right = "**" } }
@@ -123,9 +144,10 @@ require("mini.surround").setup({
 	}
 })
 
+require("mini.tabline").setup({
+	tabpage_section = "none"
+})
 
--- NOTE: mini.pick line highlight was not showing for me, this fixes it
-vim.api.nvim_set_hl(0, "MiniPickMatchCurrent", { link = "visual" })
 
 
 

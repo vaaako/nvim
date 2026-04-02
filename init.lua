@@ -7,15 +7,14 @@ require("plugins")
 require("options")
 require("autocmd")
 require("keymaps")
-require("statusline")
 require("lsp")
 -- Plugins config
 require("plugins.confcmp")
 require("plugins.treesitter")
 -- Not plugins
 require("plugins.terminal")
-require("plugins.tabline")
+require("plugins.statusline")
+-- require("plugins.tabline")
 
 vim.cmd.hi("statusline guibg=NONE")
 vim.cmd.colorscheme("gruber-darker")
-
