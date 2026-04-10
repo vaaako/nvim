@@ -38,7 +38,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufLeave", "FocusLost", "InsertLeave"
 	end
 })
 
-
+-- Log LSP attach
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
 		print("LSP attached:", vim.lsp.get_client_by_id(ev.data.client_id).name)

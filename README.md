@@ -11,7 +11,10 @@ This is my minimal neovim setup
 No `nvim-lspconfig`
 
 ## Requirements
+- Neovim 0.12+
 - npm
+- tree-sitter-cli
+	+ `npm install -g tree-sitter-cli`
 
 ## Installation
 - Backup your current neovim

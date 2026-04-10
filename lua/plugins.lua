@@ -1,157 +1,42 @@
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_echo({
-			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out, "WarningMsg" },
-			{ "\nPress any key to exit..." },
-		}, true, {})
-		vim.fn.getchar()
-		os.exit(1)
-	end
-end
-vim.opt.rtp:prepend(lazypath)
+vim.pack.add({
+	-- Colorscheme
+	"https://github.com/blazkowolf/gruber-darker.nvim",
+	-- Multi cursor
+	"https://github.com/mg979/vim-visual-multi",
+	-- Icons
+	"https://github.com/nvim-tree/nvim-web-devicons",
 
--- Setup lazy.nvim
-require("lazy").setup({
-	spec = {
-		-- Colorscheme
-		"https://github.com/blazkowolf/gruber-darker.nvim",
-
-		-- Multi cursor
-		"https://github.com/mg979/vim-visual-multi",
-		-- Icons
-		"https://github.com/nvim-tree/nvim-web-devicons",
-		-- File explorer
-		"https://github.com/stevearc/oil.nvim",
-
-		-- LSP
-		"https://github.com/mason-org/mason.nvim",
-		"https://github.com/mason-org/mason-lspconfig.nvim", -- Just for "ensure_installed" feature
-		"https://github.com/hrsh7th/nvim-cmp",
-		"https://github.com/hrsh7th/cmp-nvim-lsp",
-		-- Treesitter
-		{
-			"https://github.com/nvim-treesitter/nvim-treesitter",
-			branch = "master",
-			dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
-			build = ":TSUpdate"
-		},
-
-		{
-			"https://github.com/Wansmer/treesj",
-			keys = { "<space>m", "<space>j", "<space>s" }, -- Change, Join, Split
-			dependencies = { "nvim-treesitter/nvim-treesitter" }
-		},
-
-		{
-			"https://github.com/MeanderingProgrammer/render-markdown.nvim",
-			dependencies = { "nvim-treesitter/nvim-treesitter", 'nvim-tree/nvim-web-devicons' },
-			ft = { "markdown" }
-		},
-
-		-- mini.nvim
-		"https://github.com/nvim-mini/mini.cursorword",
-		"https://github.com/nvim-mini/mini.hipatterns",
-		"https://github.com/nvim-mini/mini.notify",
-		"https://github.com/nvim-mini/mini.pairs",
-		"https://github.com/nvim-mini/mini.pick",
-		"https://github.com/nvim-mini/mini.surround",
-		"https://github.com/nvim-mini/mini.tabline",
-
-		-- Useless
-		"https://github.com/andweeb/presence.nvim",
-		{
-			"https://github.com/sphamba/smear-cursor.nvim",
-			opts = {
-				stiffness = 0.8,
-				trailing_stiffness = 0.5,
-				distance_stop_animating = 0.5
-			}
-		}
+	{
+		src = "https://github.com/Wansmer/treesj",
+		dependencies = { "nvim-treesitter/nvim-treesitter" }
 	},
 
-	-- Configure any other settings here. See the documentation for more details.
-	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "habamax" } },
-	-- automatically check for plugin updates
-	checker = { enabled = true },
+	{
+		src = "https://github.com/MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", 'nvim-tree/nvim-web-devicons' },
+		ft = { "markdown" }
+	},
+
+	-- Useless
+	"https://github.com/andweeb/presence.nvim",
+	"https://github.com/sphamba/smear-cursor.nvim",
 })
 
-require("oil").setup({
-	columns = {
-		"size",
-		"mtime",
-		"icon"
-	},
-	buf_options = {
-		buflisted = false -- Show buffer on tabline
-	},
-	view_options = {
-		show_hidden = true
-	}
-})
 require("nvim-web-devicons").setup()
 require("render-markdown").disable()
 
-require('treesj').setup({
-	max_join_length = 200,
+require("treesj").setup({
+	keys = { "<space>m", "<space>j", "<space>s" }, -- Change, Join, Split
+	max_join_length = 200
 })
 
--- mini.nvim
-require("mini.cursorword").setup() -- Highlight words under cursor
-local hipatterns = require("mini.hipatterns")
-hipatterns.setup({  -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOT
-	highlighters = {
-		-- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
-		fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme'},
-		hack  = { pattern = '%f[%w]()HACK()%f[%W]',  group = 'MiniHipatternsHack' },
-		todo  = { pattern = '%f[%w]()TODO()%f[%W]',  group = 'MiniHipatternsTodo' },
-		note  = { pattern = '%f[%w]()NOTE()%f[%W]',  group = 'MiniHipatternsNote' },
-		-- Highlight hex color strings (`#rrggbb`) using that color
-		-- Example: #ca1773
-		hex_color = hipatterns.gen_highlighter.hex_color(),
-	},
-})
-require("mini.notify").setup() --
-require("mini.pairs").setup()  -- Auto pairs
-require("mini.pick").setup({
-	options = {
-		use_cache = false
-	},
-	mappings = {
-		choose = "<C-t>",
-		choose_in_tabpage = "<CR>",
-		move_down  = '<C-j>',
-		move_up  = '<C-k>'
+require("smear_cursor").setup({
+	opts = {
+		stiffness = 0.8,
+		trailing_stiffness = 0.5,
+		distance_stop_animating = 0.5
 	}
 })
--- NOTE: mini.pick line highlight was not showing for me, this fixes it
-vim.api.nvim_set_hl(0, "MiniPickMatchCurrent", { link = "visual" })
-
-require("mini.surround").setup({
-	custom_surroundings = {
-		["s"] = { output = { left = "**", right = "**" } }
-	},
-	mappings = {
-		add     = "S",  -- Add surrounding in normal and visual
-		delete  = "sd", -- Delete surrounding
-		replace = "sr"  -- Replace surrounding (what -> to)
-
-	}
-})
-
-require("mini.tabline").setup({
-	tabpage_section = "none"
-})
-
-
-
-
--- Eyecandy plugins
 
 require("presence").setup({
 	auto_update         = true,
@@ -170,6 +55,3 @@ require("presence").setup({
 	git_commit_text     = "Committing changes",
 	plugin_manager_text = "Managing plugins"
 })
-
-
-

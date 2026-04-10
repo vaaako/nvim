@@ -1,3 +1,10 @@
+vim.pack.add({
+	"https://github.com/hrsh7th/nvim-cmp",
+	"https://github.com/hrsh7th/cmp-nvim-lsp"
+})
+
+local cmp = require("cmp")
+
 local kind_icons = {
 	Text = "󰊄",
 	Method = "m",
@@ -26,7 +33,6 @@ local kind_icons = {
 	TypeParameter = "󰉺",
 }
 
-local cmp = require("cmp")
 cmp.setup({
 	-- Priority order
 	sources = {
@@ -54,4 +60,5 @@ cmp.setup({
 		end
 	}
 })
+
 require("cmp_nvim_lsp").default_capabilities()

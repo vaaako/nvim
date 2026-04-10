@@ -1,5 +1,11 @@
 -- https://github.com/neovim/nvim-lspconfig/tree/master/lsp
 
+vim.pack.add({
+	"https://github.com/mason-org/mason.nvim",
+	"https://github.com/mason-org/mason-lspconfig.nvim" -- Just for "ensure_installed" feature
+})
+
+
 local group = vim.api.nvim_create_augroup("UserLspAttach", { clear = true })
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = group,
@@ -20,7 +26,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 		vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
-		-- vim.keymap.set("n", "gl", vim.diagnostic.setloclist, opts)
+		vim.keymap.set("n", "gL", vim.diagnostic.setloclist, opts)
 		vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
 
 		-- Code actions
@@ -39,16 +45,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end
 })
 
--- vim.lsp.enable({
--- 	"lua_ls"
--- })
-
 local servers = {
 	"lua_ls",
 	"clangd",
 	"ts_ls",
 	"jdtls",
-	"intelephense"
+	"intelephense",
+	"pyright"
 }
 
 require("mason").setup()
