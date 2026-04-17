@@ -35,7 +35,12 @@ hipatterns.setup({
 	},
 })
 
-require("mini.notify").setup() --
+require("mini.notify").setup({
+	lsp_progress = {
+		-- This is so annoying when working with java
+		enable = false
+	}
+})
 require("mini.pairs").setup()  -- Auto pairs
 require("mini.pick").setup({
 	options = {
