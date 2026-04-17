@@ -23,7 +23,9 @@ vim.pack.add({
 })
 
 require("nvim-web-devicons").setup()
-require("render-markdown").disable()
+require("render-markdown").setup({
+	enabled = false
+})
 
 require("treesj").setup({
 	keys = { "<space>m", "<space>j", "<space>s" }, -- Change, Join, Split
