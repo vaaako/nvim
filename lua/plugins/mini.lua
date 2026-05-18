@@ -37,8 +37,7 @@ hipatterns.setup({
 
 require("mini.notify").setup({
 	lsp_progress = {
-		-- This is so annoying when working with java
-		enable = false
+		enable = true
 	}
 })
 require("mini.pairs").setup()  -- Auto pairs
@@ -46,8 +45,7 @@ require("mini.pick").setup({
 	options = {
 		use_cache = false
 	},
-	mappings = {
-		choose            = "<C-t>",
+	mappings = { choose            = "<C-t>",
 		choose_in_tabpage = "<CR>",
 		move_down         = '<C-j>',
 		move_up           = '<C-k>'
