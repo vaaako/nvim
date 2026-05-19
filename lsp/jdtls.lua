@@ -32,6 +32,8 @@
 ---       vim.lsp.config('jdtls', { cmd = { 'jdtls' } })
 ---     ```
 
+local lombok_path = vim.fn.expand("~/.config/nvim/lombok.jar")
+
 local function get_jdtls_cache_dir()
 	return vim.fn.stdpath('cache') .. '/jdtls'
 end
@@ -84,8 +86,10 @@ return {
 
 		local config_cmd = {
 			'jdtls',
+			'--jvm-arg=-javaagent:' .. lombok_path,
 			'-data',
 			data_dir,
+			-- TODO: may remove this
 			get_jdtls_jvm_args(),
 		}
 
@@ -98,5 +102,5 @@ return {
 	filetypes = { 'java' },
 	root_markers = vim.fn.has('nvim-0.11.3') == 1 and { root_markers1, root_markers2 }
 	or vim.list_extend(root_markers1, root_markers2),
-	init_options = {},
+	init_options = {}
 }
